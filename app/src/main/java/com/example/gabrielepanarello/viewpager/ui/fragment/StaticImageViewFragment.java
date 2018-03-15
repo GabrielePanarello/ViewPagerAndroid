@@ -11,22 +11,17 @@ import android.widget.TextView;
 import com.example.gabrielepanarello.viewpager.R;
 
 /**
- * Created by Gabriele Panarello on 01/03/2018.
+ * Created by Gabriele Panarello on 14/03/2018.
  */
 
-public class SimpleFragment extends Fragment {
-    @Nullable
+public class StaticImageViewFragment extends Fragment {
+
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        return inflater.inflate(R.layout.fragment_layout,container,false);
+        View rootView = inflater.inflate(R.layout.static_imageview_layout,container,false);
+
+        return rootView;
     }
 
-    @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-
-        TextView tw = (TextView) view.findViewById(R.id.mainTextView);
-        tw.setText(getArguments().getString("Fragment_Text"));
-    }
 }

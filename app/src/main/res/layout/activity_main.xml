@@ -47,17 +47,7 @@
     </android.support.design.widget.TabLayout>
 
     <FrameLayout
-        android:id="@+id/fragmentContainer1"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"></FrameLayout>
-
-    <FrameLayout
-        android:id="@+id/fragmentContainer2"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"></FrameLayout>
-
-    <FrameLayout
-        android:id="@+id/fragmentContainer3"
+        android:id="@+id/fragmentContainer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"></FrameLayout>
 

@@ -1,14 +1,14 @@
 package com.example.gabrielepanarello.viewpager.ui.adapter;
 
 import android.content.Context;
-import android.os.Bundle;
-import android.provider.SyncStateContract;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 import com.example.gabrielepanarello.viewpager.R;
-import com.example.gabrielepanarello.viewpager.ui.fragment.SimpleFragment;
+import com.example.gabrielepanarello.viewpager.ui.fragment.EmailFragment;
+import com.example.gabrielepanarello.viewpager.ui.fragment.ContactListFragment;
+import com.example.gabrielepanarello.viewpager.ui.fragment.StaticImageViewFragment;
 
 /**
  * Created by Gabriele Panarello on 01/03/2018.
@@ -17,6 +17,7 @@ import com.example.gabrielepanarello.viewpager.ui.fragment.SimpleFragment;
 public class MainFragmentPageAdapter extends FragmentPagerAdapter {
 
     private Context mContext;
+    private int tabPosition;
 
     public MainFragmentPageAdapter(FragmentManager fm, Context context) {
         super(fm);
@@ -25,26 +26,27 @@ public class MainFragmentPageAdapter extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        SimpleFragment simpleFragment = new SimpleFragment();
 
-        Bundle args = new Bundle();
+        tabPosition = position;
+
+        Fragment result = new StaticImageViewFragment();
 
         switch (position) {
             case 0:
-                args.putString("Fragment_Text", "Fragment 1");
+                result = new StaticImageViewFragment();
                 break;
 
             case 1:
-                args.putString("Fragment_Text", "Fragment 2");
+                result = new ContactListFragment();
                 break;
 
             case 2:
-                args.putString("Fragment_Text", "Fragment 3");
+                result = new EmailFragment();
                 break;
         }
 
-        simpleFragment.setArguments(args);
-        return simpleFragment;
+
+        return result;
     }
 
     @Override
@@ -65,5 +67,9 @@ public class MainFragmentPageAdapter extends FragmentPagerAdapter {
             default:
                 return null;
         }
+    }
+
+    public int getTabPosition(){
+        return tabPosition;
     }
 }
