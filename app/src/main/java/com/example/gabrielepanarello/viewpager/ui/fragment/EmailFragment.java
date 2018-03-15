@@ -39,20 +39,22 @@ public class EmailFragment extends Fragment {
             @Override
             public void onClick(View view) {
 
-                String mailto = "mailto:" + Uri.encode(receiver) +
-                        "?subject=" + Uri.encode(subject) +
-                        "&body=" + Uri.encode(bodyText);
+                if (receiver != null && subject != null && bodyText != null) {
+                    String mailto = "mailto:" + Uri.encode(receiver) +
+                            "?subject=" + Uri.encode(subject) +
+                            "&body=" + Uri.encode(bodyText);
 
-                Intent emailIntent = new Intent(Intent.ACTION_SENDTO);
-                emailIntent.setData(Uri.parse(mailto));
-                try {
-                    receiverText.setText("");
-                    subjectText.setText("");
-                    messageText.setText("");
+                    Intent emailIntent = new Intent(Intent.ACTION_SENDTO);
+                    emailIntent.setData(Uri.parse(mailto));
+                    try {
+                        receiverText.setText("");
+                        subjectText.setText("");
+                        messageText.setText("");
 
-                    startActivity(emailIntent);
-                } catch (ActivityNotFoundException e) {
-                    //TODO: Handle case where no email app is available
+                        startActivity(emailIntent);
+                    } catch (ActivityNotFoundException e) {
+                        //TODO: Handle case where no email app is available
+                    }
                 }
             }
         });

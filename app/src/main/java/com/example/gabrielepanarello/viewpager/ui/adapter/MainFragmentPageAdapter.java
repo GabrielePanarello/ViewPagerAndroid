@@ -17,7 +17,6 @@ import com.example.gabrielepanarello.viewpager.ui.fragment.StaticImageViewFragme
 public class MainFragmentPageAdapter extends FragmentPagerAdapter {
 
     private Context mContext;
-    private int tabPosition;
 
     public MainFragmentPageAdapter(FragmentManager fm, Context context) {
         super(fm);
@@ -26,8 +25,6 @@ public class MainFragmentPageAdapter extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-
-        tabPosition = position;
 
         Fragment result = new StaticImageViewFragment();
 
@@ -67,9 +64,5 @@ public class MainFragmentPageAdapter extends FragmentPagerAdapter {
             default:
                 return null;
         }
-    }
-
-    public int getTabPosition(){
-        return tabPosition;
     }
 }
